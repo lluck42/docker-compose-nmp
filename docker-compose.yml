@@ -1,0 +1,23 @@
+web:
+  image: nginx:latest
+  ports:
+  - "80:80"
+  volumes:
+  - ./code:/code
+  - ./site.conf:/etc/nginx/conf.d/site.conf
+  links:
+  - php
+php:
+  build: ./docker/php/
+  volumes:
+  - ./code:/code
+  links:
+  - mysql
+mysql:
+  image: mysql:latest
+  ports: 
+  - "3306:3306"
+  volumes:
+  - ./data:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: a.123456
