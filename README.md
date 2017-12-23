@@ -10,6 +10,6 @@ nginx 只挂载出了 conf.d
 
 $ docker-compose up
 
-关键点：
+tips: 
 
-tips: php7.2 是个坑，新手误入
+php7.2 是个坑，新手误入
