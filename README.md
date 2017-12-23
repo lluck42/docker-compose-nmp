@@ -8,7 +8,7 @@ nginx 只挂载出了 conf.d
 
 关键点：
 
-1> 127.0.0.1 要换成 docker inspect *** | grep "IP" 中的ip地址
+1> 127.0.0.1 要换成 docker inspect "容器id" | grep "IP" 中的ip地址
 
 2> nginx 挂载全部 配置无法启动
 
