@@ -8,10 +8,7 @@ nginx 只挂载出了 conf.d
 
 使用：
 
-安装docker
 $ docker-compose up;
-查看docker ps 是否全部开启;
-打开访问 127.0.0.1 是否能打开;
 
 关键点：
 
