@@ -13,6 +13,7 @@ php:
   - ./code:/code
   links:
   - mysql
+  - redis
 mysql:
   image: mysql:latest
   ports: 
@@ -22,3 +23,7 @@ mysql:
   - ./etc/mysql:/etc/mysql/conf.d/
   environment:
     MYSQL_ROOT_PASSWORD: a.123456
+redis:
+  image: redis:latest
+  ports:
+  - "6379:6379"
