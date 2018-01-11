@@ -16,14 +16,13 @@ RUN apt-get install -y libpng-dev
 
 #pecl 安装扩展
 
-RUN pecl install -o -f zip \
-    && docker-php-ext-enable zip
-
 RUN pecl install -o -f redis \
 &&  rm -rf /tmp/pear \
 &&  echo "extension=redis.so" > /usr/local/etc/php/conf.d/redis.ini
 
 #docker命令安装扩展
+RUN docker-php-ext-install zip
+
 RUN docker-php-ext-install gd
 
 RUN docker-php-ext-install pdo_mysql  
