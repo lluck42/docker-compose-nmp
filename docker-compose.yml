@@ -3,14 +3,15 @@ web:
   ports:
   - "80:80"
   volumes:
-  - ./code:/code
+  - ./html:/var/www/html
   - ./etc/nginx:/etc/nginx/conf.d
   links:
   - php
 php:
   build: ./docker/php/
   volumes:
-  - ./code:/code
+  - ./html:/var/www/html/
+  - ./etc/supervisor:/etc/supervisor/conf.d
   links:
   - mysql
   - redis
