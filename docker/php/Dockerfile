@@ -31,4 +31,5 @@ RUN docker-php-ext-install mysqli
 
 #开启守护进程 守护 php artisan queue:work
 RUN apt-get install -y supervisor
-RUN supervisord -c /etc/supervisor/supervisord.conf
+#RUN supervisord -c /etc/supervisor/supervisord.conf
+# 开启守护进程要在容器中开启，可能和挂在顺序有关
