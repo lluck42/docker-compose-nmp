@@ -2,7 +2,7 @@
 # build with official images
 docker compose for mysql php-fpm nginx
 
-usage：
+usage:
 $ cd docker-compose-nmp/
 $ docker-compose up
 
