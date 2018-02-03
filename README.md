@@ -1,6 +1,6 @@
-﻿#docker compose for mysql php-fpm nginx
+﻿# docker compose for mysql php-fpm nginx
 ## basic docker php-fpm mysql nginx server
-##build with official images
+## build with official images
 
 
 usage:
