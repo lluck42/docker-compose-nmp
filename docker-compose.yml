@@ -1,30 +1,44 @@
-web:
-  image: nginx:1.13
-  ports:
-  - "80:80"
-  volumes:
-  - ./html:/var/www/html
-  - ./etc/nginx:/etc/nginx/conf.d
-  links:
-  - php
-php:
-  build: ./docker/php/
-  volumes:
-  - ./html:/var/www/html/
-  - ./etc/supervisor:/etc/supervisor/conf.d
-  links:
-  - mysql
-  - redis
-mysql:
-  image: mysql:5.6
-  ports: 
-  - "3306:3306"
-  volumes:
-  - ./data:/var/lib/mysql
-  - ./etc/mysql:/etc/mysql/conf.d/
-  environment:
-    MYSQL_ROOT_PASSWORD: a.123456
-redis:
-  image: redis:3.2
-  ports:
-  - "6379:6379"
+version: '2'
+services:
+  web:
+    image: nginx:1.13
+    ports:
+    - "80:80"
+    volumes:
+    - ./html:/var/www/html
+    - ./etc/nginx:/etc/nginx/conf.d
+    links:
+    - php
+    networks:
+    - public-network
+    - local-network
+  php:
+    build: ./docker/php/
+    volumes:
+    - ./html:/var/www/html/
+    - ./etc/supervisor:/etc/supervisor/conf.d
+    links:
+    - mysql
+    - redis
+    networks:
+    - local-network
+  mysql:
+    image: mysql:5.6
+    ports: 
+    - "3306:3306"
+    volumes:
+    - ./data:/var/lib/mysql
+    - ./etc/mysql:/etc/mysql/conf.d/
+    environment:
+      MYSQL_ROOT_PASSWORD: a.123456
+    networks:
+    - local-network
+  redis:
+    image: redis:3.2
+    ports:
+    - "6379:6379"
+    networks:
+    - local-network
+networks:
+    public-network:
+    local-network:
