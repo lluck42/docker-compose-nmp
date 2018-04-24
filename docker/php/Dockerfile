@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:5.6-fpm
 
 #安装环境
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
