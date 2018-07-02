@@ -1,7 +1,7 @@
 version: '2'
 services:
-  web:
-    image: nginx:1.13
+  nginx:
+    build: ./docker/nginx/
     ports:
     - "80:80"
     volumes:
