@@ -10,7 +10,7 @@ services:
     networks:
     - public-network
   php-fpm:
-    image: registry.cn-hangzhou.aliyuncs.com/lluck42/php-fpm
+    image: registry.cn-hangzhou.aliyuncs.com/lluck42/php-fpm:latest
     ports:
     - "9000:9000"
     volumes:

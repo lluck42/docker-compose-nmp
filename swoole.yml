@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  swoole:
+      image: registry.cn-hangzhou.aliyuncs.com/lluck42/php-swoole:latest
+      ports:
+      - "9501:9501"
+      volumes:
+      - ./html/nanyang/:/var/www/html/
+      environment:
+        SCRIPTFILE: server/websocket/main.php
+      networks:
+      - public-network
+networks:
+    public-network:
