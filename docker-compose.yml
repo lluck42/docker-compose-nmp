@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3'
 services:
   nginx:
     image: nginx:1.13
@@ -10,7 +10,7 @@ services:
     networks:
     - public-network
   php-fpm:
-    image: registry.cn-hangzhou.aliyuncs.com/lluck42/php-fpm:latest
+    image: registry.cn-hangzhou.aliyuncs.com/lluck42/php-fpm:7.2.8-fpm-stretch
     ports:
     - "9000:9000"
     volumes:
@@ -28,22 +28,22 @@ services:
       MYSQL_ROOT_PASSWORD: a.123456
     networks:
     - public-network
-  mysql1:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    ports: 
-    - "3307:3306"
-    volumes:
-    - ./data1:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: a.123456
-    networks:
-    - public-network
-  redis:
-      image: redis:3.2
-      ports:
-      - "6379:6379"
-      networks:
-      - public-network
+  # mysql1:
+  #   image: mysql:8.0
+  #   command: --default-authentication-plugin=mysql_native_password
+  #   ports: 
+  #   - "3307:3306"
+  #   volumes:
+  #   - ./data1:/var/lib/mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: a.123456
+  #   networks:
+  #   - public-network
+  # redis:
+  #     image: redis:3.2
+  #     ports:
+  #     - "6379:6379"
+  #     networks:
+  #     - public-network
 networks:
     public-network:
